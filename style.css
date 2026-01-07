@@ -1,0 +1,207 @@
+/* ===== RESET & BASE ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.6s ease;
+}
+
+#app {
+  display: flex;
+  gap: 40px;
+  max-width: 600px;
+}
+
+/* ===== EMOTION AREA ===== */
+#emotion-area {
+  width: 200px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  user-select: none;
+}
+
+#emotion-area input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+}
+
+#emotion-area input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#emotion-area input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+#emotion-area div:nth-child(2) {
+  margin-top: 10px;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#emotion-area div:last-child {
+  font-size: 40px;
+  transition: transform 0.3s ease;
+}
+
+/* ===== AUTH CARD ===== */
+#auth-card {
+  width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+  animation: cardEnter 0.4s ease;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== TABS ===== */
+#auth-tabs {
+  display: flex;
+  gap: 10px;
+  user-select: none;
+}
+
+#auth-tabs button {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  background: #eee;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#auth-tabs button.active {
+  background: #000;
+  color: #fff;
+}
+
+/* ===== INPUTS (FIXED SIZE) ===== */
+#auth-card input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px 8px;
+  font-size: 14px;
+  height: 34px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== BUTTONS ===== */
+#auth-card button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 9px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#auth-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+/* ===== FORM SWITCH ===== */
+#login-form,
+#signup-form {
+  animation: fadeSlide 0.3s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== MOODS ===== */
+
+/* BACKGROUND */
+body[data-mood="0"] { background: linear-gradient(120deg, #eaf2ff, #ffffff); }
+body[data-mood="1"] { background: linear-gradient(120deg, #fff4c2, #ffe9a8); }
+body[data-mood="2"] { background: linear-gradient(120deg, #ffd28a, #ffb347); }
+body[data-mood="3"] { background: linear-gradient(120deg, #ff9a9a, #ff4b4b); }
+
+/* CARD SHADOW */
+body[data-mood="0"] #auth-card { box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+body[data-mood="1"] #auth-card { box-shadow: 0 10px 24px rgba(255,180,0,0.25); }
+body[data-mood="2"] #auth-card { box-shadow: 0 12px 30px rgba(255,120,0,0.35); }
+body[data-mood="3"] #auth-card { box-shadow: 0 14px 36px rgba(255,0,0,0.45); }
+
+/* BUTTON COLOR */
+body[data-mood="0"] #auth-card button { background: #e0e7ff; transition-duration: 0.6s; }
+body[data-mood="1"] #auth-card button { background: #ffe8a3; transition-duration: 0.4s; }
+body[data-mood="2"] #auth-card button { background: #ffd28a; transition-duration: 0.25s; }
+body[data-mood="3"] #auth-card button { background: #ffb3b3; transition-duration: 0.15s; }
+
+/* INPUT BORDER */
+body[data-mood="0"] #auth-card input { border-color: #9bb7e0; }
+body[data-mood="1"] #auth-card input { border-color: #e6b800; }
+body[data-mood="2"] #auth-card input { border-color: #ff8c1a; }
+body[data-mood="3"] #auth-card input { border-color: #ff3333; }
+
+/* SLIDER TRACK */
+body[data-mood="0"] #emotion-area input[type="range"] { background: #bcd4f6; }
+body[data-mood="1"] #emotion-area input[type="range"] { background: #ffe08a; }
+body[data-mood="2"] #emotion-area input[type="range"] { background: #ffb347; }
+body[data-mood="3"] #emotion-area input[type="range"] { background: #ff6b6b; }
+
+/* SLIDER THUMB */
+body[data-mood="1"] #emotion-area input[type="range"]::-webkit-slider-thumb { background: #e6b800; }
+body[data-mood="2"] #emotion-area input[type="range"]::-webkit-slider-thumb { background: #ff8c1a; }
+body[data-mood="3"] #emotion-area input[type="range"]::-webkit-slider-thumb { background: #ff3333; }
+
+/* LABEL + EMOJI */
+body[data-mood="0"] #emotion-area div:nth-child(2) { color: #4a6fa5; }
+body[data-mood="1"] #emotion-area div:nth-child(2) { color: #b08900; }
+body[data-mood="2"] #emotion-area div:nth-child(2) { color: #c05600; }
+body[data-mood="3"] #emotion-area div:nth-child(2) { color: #a80000; }
+
+body[data-mood="1"] #emotion-area div:last-child { transform: scale(1.1) rotate(2deg); }
+body[data-mood="2"] #emotion-area div:last-child { transform: scale(1.2) rotate(6deg); }
+body[data-mood="3"] #emotion-area div:last-child { transform: scale(1.3) rotate(12deg); }
+@media (max-width: 640px) {
+  #app {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #emotion-area,
+  #auth-card {
+    width: 100%;
+  }
+}
